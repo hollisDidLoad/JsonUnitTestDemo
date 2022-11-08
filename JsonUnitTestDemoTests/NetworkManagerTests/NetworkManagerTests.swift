@@ -30,7 +30,7 @@ final class JsonUnitTestDemoTests: XCTestCase {
             mockModel = try JSONDecoder().decode(JsonTestModel.self, from: jsonData)
             
         //Then
-            XCTAssertEqual(mockModel?.title, "Mock Title")
+            XCTAssertEqual(mockModel?.title, "Mock Title") 
             XCTAssertEqual(mockModel?.description, "Mock Description")
             XCTAssertEqual(mockModel?.brand, "MockMock")
         } catch {
