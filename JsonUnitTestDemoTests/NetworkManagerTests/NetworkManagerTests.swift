@@ -19,14 +19,20 @@ final class JsonUnitTestDemoTests: XCTestCase {
     }
     
     func test_networkManager_fetchModel() {
+        //Given
         guard let path = Bundle.main.path(forResource: "mockJson", ofType: "json") else { return }
         let url = URL(fileURLWithPath: path)
         var mockModel: JsonTestModel?
+        
+        //When
         do {
             let jsonData = try Data(contentsOf: url)
             mockModel = try JSONDecoder().decode(JsonTestModel.self, from: jsonData)
+            
         //Then
-            XCTAssertNotNil(mockModel)
+            XCTAssertEqual(mockModel?.title, "Mock Title")
+            XCTAssertEqual(mockModel?.description, "Mock Description")
+            XCTAssertEqual(mockModel?.brand, "MockMock")
         } catch {
             XCTFail("Error fetching mock json")
         }
