@@ -9,15 +9,7 @@ import XCTest
 @testable import JsonUnitTestDemo
 
 final class JsonUnitTestDemoTests: XCTestCase {
-    
-    override class func setUp() {
-        super.setUp()
-    }
-    
-    override class func tearDown() {
-        super.tearDown()
-    }
-    
+
     func test_networkManager_fetchModel() {
         //Given
         guard let path = Bundle.main.path(forResource: "mockJson", ofType: "json") else { return }
